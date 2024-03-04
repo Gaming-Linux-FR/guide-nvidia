@@ -142,7 +142,7 @@ sudo pacman -S intel-media-driver intel-gmmlib onevpl-intel-gpu
 ### Étape 1 :
 
 ```bash
-sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda
+sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-libs
 sudo rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
 ```
 
@@ -176,7 +176,7 @@ dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-
 Pilotes Nvidia ainsi que les modules du noyau nécessaires.
 
 ```bash
-dnf install -y akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda
+dnf install -y akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-libs
 akmods
 ```
 
@@ -206,9 +206,10 @@ sudo dpkg --add-architecture i386
 
 ### Mise à jour de la liste des paquets
 
-Mettez à jour vos sources de paquets pour vous assurer que vous avez accès aux dernières versions.
+Ajoutez le support des librairies 32bit et mettez à jour vos sources de paquets pour vous assurer que vous avez accès aux dernières versions.
 
 ```bash
+sudo dpkg --add-architecture i386 && sudo apt update
 sudo apt update -y
 ```
 
@@ -283,15 +284,7 @@ Ajoutez ensuite le dépôt Nvidia spécifique à Tumbleweed. Ce dépôt contient
 sudo zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
 ```
 
-### Étape 3 : Confiance dans le dépôt
-
-Pour s'assurer que le dépôt est sûr et que ses clés sont importées, exécutez :
-
-```bash
-sudo zypper --gpg-auto-import-keys ref
-```
-
-### Étape 4 : Installation des pilotes Nvidia
+### Étape 3 : Installation des pilotes Nvidia
 
 Maintenant, installez les pilotes Nvidia en acceptant automatiquement les licences nécessaires.
 
