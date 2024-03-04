@@ -56,7 +56,7 @@ Il existe un grand nombres de distributions qui font tout ce qui suit pour vous.
 
 ## Activer les services
 
-Quel que soit la distributon, il faut activer ces services après l'instalation du driver :
+Quelle que soit la distributon, il faut activer ces services après l'instalation du driver :
 
 ```bash
 sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service
