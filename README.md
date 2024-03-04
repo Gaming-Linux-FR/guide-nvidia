@@ -6,14 +6,15 @@ Ce guide est destiné aux utilisateurs de cartes graphiques NVIDIA récentes sou
 
 1. [Désactiver Secure Boot dans le BIOS](#désactiver-secure-boot-dans-le-bios)
 2. [Utiliser X11 plutôt que Wayland](#utiliser-x11-plutôt-que-wayland)
-3. [Activer les services](#activer-les-services)
-4. [Ressources supplémentaires pour ordinateurs portables NVIDIA](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
-5. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
-6. [Installation et configuration des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
-7. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
-8. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
-9. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
-10. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
+3. [Choisir une distribution qui fait tout ça pour vous](#choisir-une-distribution-qui-fait-tout-ça-pour-vous)
+4. [Activer les services](#activer-les-services)
+5. [Ressources supplémentaires pour ordinateurs portables NVIDIA](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
+6. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
+7. [Installation et configuration des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
+8. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
+9. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
+10. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
+11. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
 
 ---
 
@@ -38,6 +39,12 @@ Pour une meilleure compatibilité avec les pilotes NVIDIA, il est recommandé d'
 
 - **Merge Request GitLab** : [Explicit Sync](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/967)
 - **Documentation sur Explicit Sync** : [PDF ici](https://indico.freedesktop.org/event/2/contributions/78/attachments/90/143/explicit_sync.pdf).
+
+---
+
+## Choisir une distribution qui fait tout ça pour vous.
+
+Il existe un grand nombres de distributions qui font tout ce qui suit pour vous. Ubuntu et toutes les base Ubuntu comme POP-OS et Zorin mais aussi, Nobara, Cachy OS, Endeavor os...
 
 ---
 
