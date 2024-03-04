@@ -6,13 +6,14 @@ Ce guide est destiné aux utilisateurs de cartes graphiques NVIDIA récentes sou
 
 1. [Désactiver Secure Boot dans le BIOS](#désactiver-secure-boot-dans-le-bios)
 2. [Utiliser X11 plutôt que Wayland](#utiliser-x11-plutôt-que-wayland)
-3. [Ressources supplémentaires pour ordinateurs portables NVIDIA](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
-4. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
-5. [Installation et configuration des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
-6. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
-7. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
-8. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
-9. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
+3. [Activer les services](#activer-les-services)
+4. [Ressources supplémentaires pour ordinateurs portables NVIDIA](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
+5. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
+6. [Installation et configuration des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
+7. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
+8. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
+9. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
+10. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
 
 ---
 
@@ -43,6 +44,22 @@ Pour une meilleure compatibilité avec les pilotes NVIDIA, il est recommandé d'
 ## Ressources supplémentaires pour ordinateurs portables NVIDIA
 
 - **Optimisation des laptops NVIDIA** : [Voir la vidéo](https://youtu.be/GhsP6btpiiw)
+
+---
+
+## Activer les services
+
+Quel que soit la distributon, il faut activer ces services après l'instalation du driver :
+
+```bash
+sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service
+```
+
+Si pc portable avec technologie "Dynamic Boost" (à vous de bien vérifier)
+
+```bash
+sudo systemctl enable nvidia-powerd.service
+```
 
 ---
 
@@ -100,7 +117,7 @@ echo -e 'options nvidia_drm modeset=1' | sudo tee -a /etc/modprobe.d/nvidia.conf
 #### 2.2 Choix et installation des pilotes NVIDIA
 
 ```bash
-sudo pacman -S --needed nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
 ```
 
 ### Étape 3 : Support pour laptops Intel/NVIDIA
@@ -109,7 +126,6 @@ Pour les utilisateurs de laptops hybrides Intel/NVIDIA :
 
 ```bash
 sudo pacman -S intel-media-driver intel-gmmlib onevpl-intel-gpu
-sudo systemctl enable nvidia-powerd.service
 ```
 
 ---
@@ -231,9 +247,10 @@ sudo apt install -y linux-headers-amd64 build-essential dkms firmware-misc-nonfr
 
 ## Étape 5 : Configuration de DRM Modeset
 
-Pour améliorer l'expérience avec les pilotes Nvidia, vous pouvez activer le modeset DRM.
+Pour améliorer l'expérience avec les pilotes Nvidia, vous pouvez activer le modeset DRM et une meilleure gestion de l'alimentation.
 
 ```bash
+echo -e 'options nvidia NVreg_UsePageAttributeTable=1 NVreg_InitializeSystemMemoryAllocations=0 NVreg_DynamicPowerManagement=0x02' | sudo tee -a /etc/modprobe.d/nvidia.conf
 echo "options nvidia-drm modeset=1" | sudo tee /etc/modprobe.d/nvidia.conf
 ```
 
