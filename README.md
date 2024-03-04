@@ -33,7 +33,7 @@ Secure Boot est une fonctionnalité de sécurité du firmware UEFI qui empêche 
 
 ## Utiliser X11 plutôt que Wayland
 
-Pour une meilleure compatibilité avec les pilotes NVIDIA, il est recommandé d'utiliser X11 en raison de limitations avec Wayland, en particulier avant l'intégration complète du patch "explicit sync".
+Pour une meilleure compatibilité avec les pilotes NVIDIA, il est recommandé d'utiliser X11 en raison de limitations avec Wayland, en particulier avant l'intégration complète du patch "explicit sync". Certaines disctributions ont déjà appliqué ce patch permetant d'avoir une exelente expérience sur Wayland avec Nvidia, notamment Nobara Linux et CachyOS.
 
 ### Références sur le patch "explicit sync" :
 
@@ -44,7 +44,7 @@ Pour une meilleure compatibilité avec les pilotes NVIDIA, il est recommandé d'
 
 ## Choisir une distribution qui fait tout ça pour vous.
 
-Il existe un grand nombres de distributions qui font tout ce qui suit pour vous. Ubuntu et toutes les base Ubuntu comme POP-OS et Zorin mais aussi, Nobara, Cachy OS, Endeavor os...
+Il existe un grand nombres de distributions qui font tout ce qui suit pour vous. Ubuntu et toutes les base Ubuntu comme POP-OS et Zorin mais aussi, Nobara Linux, CachyOS, Endeavor OS, Manjaro...
 
 ---
 
