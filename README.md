@@ -6,11 +6,11 @@ Ce guide est destiné aux utilisateurs de cartes graphiques NVIDIA récentes sou
 
 1. [Désactiver Secure Boot dans le BIOS](#désactiver-secure-boot-dans-le-bios)
 2. [Utiliser X11 plutôt que Wayland](#utiliser-x11-plutôt-que-wayland)
-3. [Choisir une distribution qui fait tout ça pour vous](#choisir-une-distribution-qui-fait-tout-ça-pour-vous)
+3. [Choisir une distribution qui fait tout ce qui suit pour vous](#choisir-une-distribution-qui-fait-tout-ça-pour-vous)
 4. [Activer les services](#activer-les-services)
-5. [Ressources supplémentaires pour ordinateurs portables NVIDIA](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
+5. [Ordinateurs portables](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
 6. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
-7. [Installation et configuration des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
+7. [Installation des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
 8. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
 9. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
 10. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
@@ -46,13 +46,13 @@ Cependant, étant donné son âge, X11 présente plusieurs limitations inhérent
 
 ---
 
-## Choisir une distribution qui fait tout ça pour vous.
+## Choisir une distribution qui fait tout ce qui suit pour vous.
 
 Il existe un grand nombres de distributions qui font tout ce qui suit pour vous. Ubuntu et toutes les base Ubuntu comme POP-OS et Zorin mais aussi, Nobara Linux, CachyOS, Endeavor OS, Manjaro...
 
 ---
 
-## Ressources supplémentaires pour ordinateurs portables NVIDIA
+## Ordinateurs portables
 
 - **Optimisation des laptops NVIDIA** : [Voir la vidéo](https://youtu.be/GhsP6btpiiw)
 
@@ -150,7 +150,7 @@ L'overclocking peut améliorer les performances de votre GPU NVIDIA, mais doit �
 
 ---
 
-## Installation et configuration des pilotes NVIDIA sur Arch Linux
+## Installation des pilotes NVIDIA sur Arch Linux
 
 ### Prérequis
 
