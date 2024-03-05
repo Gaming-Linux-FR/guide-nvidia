@@ -29,7 +29,7 @@ Secure Boot est une fonctionnalité de sécurité du firmware UEFI qui empêche 
 3. **Désactivez Secure Boot**, changez de "Enabled" à "Disabled".
 4. **Sauvegardez et quittez**. Cela peut nécessiter d'appuyer sur une touche spécifique pour sauvegarder les paramètres avant de quitter.
 
-Certaines dsitributions comme Ubuntu, Linux Mint ou Opensuse, ont des outils qui peuvent aider à la mise en place de secureboot avec Nvidia sous Linux. Néamoins ça reste peu accéssible aux débutants, le plus simple reste de désactiver sécureboot.
+Certaines distributions comme Ubuntu, Linux Mint ou Opensuse, ont des outils qui peuvent aider à la mise en place de secureboot avec Nvidia sous Linux. Néanmoins ça reste peu accéssible aux débutants, le plus simple reste de désactiver sécureboot.
 
 ---
 
