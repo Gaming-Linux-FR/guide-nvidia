@@ -37,7 +37,7 @@ Certaines distributions comme Ubuntu, Linux Mint ou Opensuse, ont des outils qui
 
 Pour une meilleure compatibilité avec les pilotes NVIDIA, il est recommandé d'utiliser X11 en raison de limitations avec Wayland, en particulier avant l'intégration complète du patch "explicit sync". Certaines disctributions ont déjà appliqué ce patch permetant d'avoir une exelente expérience sur Wayland avec Nvidia, notamment **Nobara Linux** et **CachyOS**.
 
-Cependant, étant donné son âge, X11 présente plusieurs limitations inhérentes à sa conception originelle, qui ne prenait pas en compte les évolutions technologiques récentes. Un exemple notable de ces limitations est sa gestion des écrans avec des taux de rafraîchissement différents ou encore le HDR. Lorsque vous utilisez deux moniteurs avec des taux de rafraîchissement différents, par exemple, un écran à 60 Hz et un autre à 144 Hz, X11 peut rencontrer des difficultés à gérer ces différences. Dans certains cas, cela peut conduire à une situation où le système, dans le but de maintenir une synchronisation cohérente entre les écrans, bride le taux de rafraîchissement du moniteur le plus rapide (144 Hz) pour le faire correspondre à celui du moniteur le plus lent (60 Hz). Donc il peut être intéressant si on a une Nvidia d'aller sur une distribution qui applique le patch "explicit sync" comme **Nobara Linux** et **CachyOS**.
+Cependant, étant donné son âge, X11 présente plusieurs limitations inhérentes à sa conception originelle, qui ne prenait pas en compte les évolutions technologiques récentes. Un exemple notable de ces limitations est sa gestion des écrans avec des taux de rafraîchissement différents ou encore le HDR. Lorsque vous utilisez deux moniteurs avec des taux de rafraîchissement différents, par exemple, un écran à 60 Hz et un autre à 144 Hz, X11 peut rencontrer des difficultés à gérer ces différences. Dans certains cas, cela peut conduire à une situation où le système, dans le but de maintenir une synchronisation cohérente entre les écrans, bride le taux de rafraîchissement du moniteur le plus rapide (144 Hz) pour le faire correspondre à celui du moniteur le plus lent (60 Hz). Donc il peut être intéressant si on a une Nvidia d'aller sur une distribution qui applique le patch "explicit sync" comme **Nobara Linux** et **CachyOS** et d'utiliser Wayland.
 
 ### Références sur le patch "explicit sync" :
 
@@ -134,7 +134,7 @@ Quelle que soit la distributon, il faut activer ces services après l'instalatio
 sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service
 ```
 
-Si pc portable avec technologie "Dynamic Boost" (à vous de bien vérifier)
+Si pc portable avec technologie "Dynamic Boost" (à vous de bien vérifier) :
 
 ```bash
 sudo systemctl enable nvidia-powerd.service
