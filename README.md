@@ -56,6 +56,74 @@ Il existe un grand nombres de distributions qui font tout ce qui suit pour vous.
 
 - **Optimisation des laptops NVIDIA** : [Voir la vidéo](https://youtu.be/GhsP6btpiiw)
 
+**Configuration de cartes graphiques hybrides Intel/Nvidia ou AMD/Nvidia sous Linux**
+
+**1. Vérification de la carte graphique utilisée pour l'affichage de bureau :**
+
+Pour savoir quelle carte graphique est actuellement utilisée pour l'affichage de votre bureau, utilisez la commande suivante dans un terminal :
+
+```
+glxinfo | grep "OpenGL renderer"
+```
+<p align="center">
+  <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/Capture%20d'%C3%A9cran%202024-03-06%20000746.png" alt="glxinfo">
+</p>
+
+Il est préférable que le retour indique l'utilisation d'Intel, car il n'est pas nécessaire d'utiliser la carte Nvidia pour des tâches telles que la navigation sur le web, le traitement de texte, et autres activités similaires. Utiliser Nvidia pour ces tâches pourrait inutilement augmenter la température de votre PC et réduire la durée de vie de la batterie.
+
+**2. Surveillance de l'activité de votre carte graphique Nvidia :**
+
+Pour voir ce que fait votre carte graphique Nvidia, utilisez la commande :
+
+```
+nvidia-smi
+```
+
+<p align="center">
+  <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/Capture%20d'%C3%A9cran%202024-03-06%20000711.png" alt="nvidia-smi">
+</p>
+
+Si une application utilise Nvidia, elle apparaîtra dans la liste affichée par cette commande. 
+
+**3. Forcer une application à utiliser Nvidia :** 
+
+**INUTILE dans 99% des cas**. Si un jeu ne se lance pas avec Nvidia c'est que vous avez mal installé le driver ou que vous être tomber sur un des ultras rares jeux qui nécessite de forcer Nvidia.
+
+Bien que cela soit normalement inutile, si vous souhaitez explicitement qu'une application utilise Nvidia, voici comment procéder selon votre distribution Linux :
+
+- **Sur Arch Linux :**
+
+  Installez le paquet en exécutant :
+  ```
+  sudo pacman -S nvidia-prime
+  ```
+  Pour lancer une application avec Nvidia, utilisez :
+  ```
+  prime-run nomdelapp
+  ```
+  Pour les jeux sur Steam, ajoutez dans les options de lancement :
+  ```
+  prime-run %command%
+  ```
+
+- **Sur d'autres distributions Linux :**
+
+  Pour forcer une application via le terminal, utilisez :
+  ```
+  __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia nomdelapp
+  ```
+  Pour les jeux Steam, dans les options de lancement :
+  ```
+  __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia %command%
+  ```
+
+Une fois de plus cela est généralement inutile si votre pilote Nvidia est correctement installé. Depuis l'arrivée de Prime dans les pilotes NVIDIA version [435.17](https://www.phoronix.com/news/NVIDIA-435.17-Linux-Driver). en 2019, il n'est normalement pas nécessaire de faire d'autres manipulations après l'installation du pilote. Oubliez les bidouillages avec Optimus, Bumblebee, et autres complications.
+
+
+--- 
+
+J'espère que cette version améliorée répond à vos attentes !
+
 ---
 
 ## Activer les services
