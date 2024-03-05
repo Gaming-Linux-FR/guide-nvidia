@@ -213,7 +213,7 @@ sudo dpkg --add-architecture i386
 Ajoutez le support des librairies 32bit et mettez à jour vos sources de paquets pour vous assurer que vous avez accès aux dernières versions.
 
 ```bash
-sudo dpkg --add-architecture i386 && sudo apt update
+sudo dpkg --add-architecture i386
 sudo apt update -y
 ```
 
@@ -227,7 +227,7 @@ sudo apt install -y software-properties-common
 
 ## Étape 3 : Ajout des dépôts non-free et contrib
 
-Les pilotes Nvidia sont disponibles dans les sections non-free de Debian.
+Les pilotes Nvidia sont disponibles dans le dépot non-free de Debian.
 
 ### Ajout des dépôts
 
