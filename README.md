@@ -66,7 +66,7 @@ Pour savoir quelle carte graphique est actuellement utilisée pour l'affichage d
 glxinfo | grep "OpenGL renderer"
 ```
 <p align="center">
-  <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/Capture%20d'%C3%A9cran%202024-03-06%20000746.png" alt="glxinfo">
+  <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/screenshot/glxinfo" alt="glxinfo">
 </p>
 
 Il est préférable que le retour indique l'utilisation d'Intel, car il n'est pas nécessaire d'utiliser la carte Nvidia pour des tâches telles que la navigation sur le web, le traitement de texte, et autres activités similaires. Utiliser Nvidia pour ces tâches pourrait inutilement augmenter la température de votre PC et réduire la durée de vie de la batterie.
@@ -80,7 +80,7 @@ nvidia-smi
 ```
 
 <p align="center">
-  <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/Capture%20d'%C3%A9cran%202024-03-06%20000711.png" alt="nvidia-smi">
+  <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/screenshot/nvidia-smi" alt="nvidia-smi">
 </p>
 
 Si une application utilise Nvidia, elle apparaîtra dans la liste affichée par cette commande. 
