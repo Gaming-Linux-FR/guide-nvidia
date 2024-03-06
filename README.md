@@ -61,51 +61,6 @@ Dans la fenêtre des paramètres Nvidia, naviguez jusqu'à la section des param�
   <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/screenshot/allowflipping.png" alt="allowflipping">
 </p>
 
-## Chargement des modules Nvidia dans l'initramfs
-
-Mettre les modules Nvidia dans l'initramfs est une bonne chose quelle que soit la distro ou la carte. Cependant, vous devez savoir que cela augmente considérablement la taille de l'initramfs, et les distros qui par défaut ont un petit /boot de 512 Mo peuvent rapidement se remplir et finir par aficher un message d'erreur car le /boot sera plei. Si vous êtes du genre à avoir plusieurs kernels ça peut très vite arriver aussi même avec un /boot de 2Go."
-
-### Si votre distribution utilise Mkinitcpio (Arch, Manjaro, Cachyos, Arco Linux, la plus part des base Arch...)
-
-Ouvez le fichier /etc/mkinitcpio.conf : 
-
-```bash
-sudo nano /etc/mkinitcpio.conf
-```
-
-Ajoutez les modules nvidia nvidia_modeset nvidia_uvm nvidia_drm à la ligne MODULES=() :
-
-```
-MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
-```
-
-Si il y avait déjà des modules laissez les, par exemple btrfs : 
-
-```
-MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
-```
-
-### Si votre distribution utilise Dracut (Ubuntu, Debian, EdeavorOS, Garuda, Nobara)
-
-Créez un fichier dans /etc/dracut.conf.d/ :
-
-```bash
-sudo nano /etc/dracut.conf.d/nvidia.conf
-```
-
-Collez dedans :
-
-```
-force_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "
-```
-
-Régénerez l'initramfs avec Dracut : 
-
-```
-sudo dracut -f
-```
-Et on reboot.
-
 ### 3. Pour tous les DE sauf KDE :
 
 Ouvrez le fichier /etc/environment en utilisant la commande :
@@ -152,6 +107,53 @@ Redémarrez votre ordinateur pour appliquer les modifications.
 ## Conclusion
 
 Vous avez maintenant réussi à configurer votre système Linux pour gérer plusieurs moniteurs avec des taux de rafraîchissement différents en utilisant X11 et Nvidia. Cette configuration devrait réduire le déchirement de l'écran et offrir une expérience multi-moniteurs plus fluide. Si vous rencontrez des problèmes, assurez-vous que vos pilotes Nvidia sont à jour et envisagez de consulter les forums communautaires de votre distribution pour obtenir de l'aide supplémentaire.
+
+---
+
+## Chargement des modules Nvidia dans l'initramfs
+
+Mettre les modules Nvidia dans l'initramfs est une bonne chose quelle que soit la distro ou la carte. Cependant, vous devez savoir que cela augmente considérablement la taille de l'initramfs, et les distros qui par défaut ont un petit /boot de 512 Mo peuvent rapidement se remplir et finir par aficher un message d'erreur car le /boot sera plei. Si vous êtes du genre à avoir plusieurs kernels ça peut très vite arriver aussi même avec un /boot de 2Go."
+
+### Si votre distribution utilise Mkinitcpio (Arch, Manjaro, Cachyos, Arco Linux, la plus part des base Arch...)
+
+Ouvez le fichier /etc/mkinitcpio.conf : 
+
+```bash
+sudo nano /etc/mkinitcpio.conf
+```
+
+Ajoutez les modules nvidia nvidia_modeset nvidia_uvm nvidia_drm à la ligne MODULES=() :
+
+```
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
+
+Si il y avait déjà des modules laissez les, par exemple btrfs : 
+
+```
+MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
+
+### Si votre distribution utilise Dracut (Ubuntu, Debian, EdeavorOS, Garuda, Nobara)
+
+Créez un fichier dans /etc/dracut.conf.d/ :
+
+```bash
+sudo nano /etc/dracut.conf.d/nvidia.conf
+```
+
+Collez dedans :
+
+```
+force_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "
+```
+
+Régénerez l'initramfs avec Dracut : 
+
+```
+sudo dracut -f
+```
+Et on reboot.
 
 ---
 
