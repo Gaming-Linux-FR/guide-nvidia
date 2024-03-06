@@ -7,15 +7,16 @@ Ce guide est destiné aux utilisateurs de cartes graphiques NVIDIA récentes sou
 1. [Désactiver Secure Boot dans le BIOS](#désactiver-secure-boot-dans-le-bios)
 2. [Utiliser X11 plutôt que Wayland](#utiliser-x11-plutôt-que-wayland)
 3. [Moniteurs avec des taux de rafraîchissement différents sur X11](#moniteurs-avec-des-taux-de-rafraîchissement-différents-sur-x11)
-4. [Choisir une distribution qui fait tout ce qui suit pour vous](#choisir-une-distribution-qui-fait-tout-ça-pour-vous)
-5. [Activer les services](#activer-les-services)
-6. [Ordinateurs portables](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
-7. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
-8. [Installation des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
-9. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
-10. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
-11. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
-12. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
+4. [Chargement des modules Nvidia dans l'initramfs](#chargement-des-modules-nvidia-dans-linitramfs)
+5. [Choisir une distribution qui fait tout ce qui suit pour vous](#choisir-une-distribution-qui-fait-tout-ça-pour-vous)
+6. [Activer les services](#activer-les-services)
+7. [Ordinateurs portables](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
+8. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
+9. [Installation des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
+10. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
+11. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
+12. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
+13. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
 
 ---
 
@@ -59,6 +60,51 @@ Dans la fenêtre des paramètres Nvidia, naviguez jusqu'à la section des param�
 <p align="center">
   <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/screenshot/allowflipping.png" alt="allowflipping">
 </p>
+
+## Chargement des modules Nvidia dans l'initramfs
+
+Mettre les modules Nvidia dans l'initramfs est une bonne chose quelle que soit la distro ou la carte. Cependant, vous devez savoir que cela augmente considérablement la taille de l'initramfs, et les distros qui par défaut ont un petit /boot de 512 Mo peuvent rapidement se remplir et finir par aficher un message d'erreur car le /boot sera plei. Si vous êtes du genre à avoir plusieurs kernels ça peut très vite arriver aussi même avec un /boot de 2Go."
+
+### Si votre distribution utilise Mkinitcpio (Arch, Manjaro, Cachyos, Arco Linux, la plus part des base Arch...)
+
+Ouvez le fichier /etc/mkinitcpio.conf : 
+
+```bash
+sudo nano /etc/mkinitcpio.conf
+```
+
+Ajoutez les modules nvidia nvidia_modeset nvidia_uvm nvidia_drm à la ligne MODULES=() :
+
+```
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
+
+Si il y avait déjà des modules laissez les, par exemple btrfs : 
+
+```
+MODULES=(btrfs nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
+
+### Si votre distribution utilise Dracut (Ubuntu, Debian, EdeavorOS, Garuda, Nobara)
+
+Créez un fichier dans /etc/dracut.conf.d/ :
+
+```bash
+sudo nano /etc/dracut.conf.d/nvidia.conf
+```
+
+Collez dedans :
+
+```
+force_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "
+```
+
+Régénerez l'initramfs avec Dracut : 
+
+```
+sudo dracut -f
+```
+Et on reboot.
 
 ### 3. Pour tous les DE sauf KDE :
 
