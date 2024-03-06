@@ -6,7 +6,7 @@ Ce guide est destiné aux utilisateurs de cartes graphiques NVIDIA récentes sou
 
 1. [Désactiver Secure Boot dans le BIOS](#désactiver-secure-boot-dans-le-bios)
 2. [Utiliser X11 plutôt que Wayland](#utiliser-x11-plutôt-que-wayland)
-3. [Moniteurs avec des taux de rafraîchissement différents](#moniteurs-avec-des-taux-de-rafraîchissement-différents)
+3. [Moniteurs avec des taux de rafraîchissement différents sur X11](#moniteurs-avec-des-taux-de-rafraîchissement-différents-sur-x11)
 4. [Choisir une distribution qui fait tout ce qui suit pour vous](#choisir-une-distribution-qui-fait-tout-ça-pour-vous)
 5. [Activer les services](#activer-les-services)
 6. [Ordinateurs portables](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
@@ -47,7 +47,7 @@ Cependant, étant donné son âge, X11 présente plusieurs limitations inhérent
 
 ---
 
-## Moniteurs avec des taux de rafraîchissement différents sur x11 :
+## Moniteurs avec des taux de rafraîchissement différents sur X11
 
 ### 1. Ouvrir les Paramètres Nvidia
 Lancez le panneau de configuration Nvidia
