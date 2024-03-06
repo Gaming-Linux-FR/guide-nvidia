@@ -6,15 +6,16 @@ Ce guide est destiné aux utilisateurs de cartes graphiques NVIDIA récentes sou
 
 1. [Désactiver Secure Boot dans le BIOS](#désactiver-secure-boot-dans-le-bios)
 2. [Utiliser X11 plutôt que Wayland](#utiliser-x11-plutôt-que-wayland)
-3. [Choisir une distribution qui fait tout ce qui suit pour vous](#choisir-une-distribution-qui-fait-tout-ça-pour-vous)
-4. [Activer les services](#activer-les-services)
-5. [Ordinateurs portables](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
-6. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
-7. [Installation des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
-8. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
-9. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
-10. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
-11. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
+3. [Moniteurs avec des taux de rafraîchissement différents](#moniteurs-avec-des-taux-de-rafraîchissement-différents)
+4. [Choisir une distribution qui fait tout ce qui suit pour vous](#choisir-une-distribution-qui-fait-tout-ça-pour-vous)
+5. [Activer les services](#activer-les-services)
+6. [Ordinateurs portables](#ressources-supplémentaires-pour-ordinateurs-portables-nvidia)
+7. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
+8. [Installation des pilotes NVIDIA sur Arch Linux](#installation-et-configuration-des-pilotes-nvidia-sur-arch-linux)
+9. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
+10. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
+11. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
+12. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
 
 ---
 
@@ -46,9 +47,34 @@ Cependant, étant donné son âge, X11 présente plusieurs limitations inhérent
 
 ---
 
+## Moniteurs avec des taux de rafraîchissement différents sur x11 :
+
+### 1. Ouvrir les Paramètres Nvidia
+Lancez le panneau de configuration Nvidia
+
+### 2. Ajuster les Paramètres OpenGL
+Dans la fenêtre des paramètres Nvidia, naviguez jusqu'à la section des paramètres OpenGL et désactivez l'option suivantes :
+- **Allow Flipping**
+
+<p align="center">
+  <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/screenshot/allowflipping.png" alt="allowflipping">
+</p>
+
+### 3. Sauvegarder la Configuration
+Après avoir configuré vos moniteurs, cliquez sur **Save to X Configuration File**. Cela sauvegardera vos paramètres dans le fichier de configuration X11 de votre système, garantissant leur persistance à travers les redémarrages.
+
+### 4. Redémarrer Votre Ordinateur
+Redémarrez votre ordinateur pour appliquer les modifications.
+
+## Conclusion
+
+Vous avez maintenant réussi à configurer votre système Linux pour gérer plusieurs moniteurs avec des taux de rafraîchissement différents en utilisant X11 et Nvidia. Cette configuration devrait réduire le déchirement de l'écran et offrir une expérience multi-moniteurs plus fluide. Si vous rencontrez des problèmes, assurez-vous que vos pilotes Nvidia sont à jour et envisagez de consulter les forums communautaires de votre distribution pour obtenir de l'aide supplémentaire.
+
+---
+
 ## Choisir une distribution qui fait tout ce qui suit pour vous.
 
-Il existe un grand nombres de distributions qui font tout ce qui suit pour vous. Ubuntu et toutes les base Ubuntu comme POP-OS et Zorin mais aussi, Nobara Linux, CachyOS, Endeavor OS, Manjaro...
+Il existe un grand nombres de distributions qui font tout ce qui suit pour vous mais pas forcément ce qui précède (chapitre 1 à 3). Ubuntu et toutes les base Ubuntu comme POP-OS et Zorin mais aussi, Nobara Linux, CachyOS, Endeavor OS, Manjaro...
 
 ---
 
