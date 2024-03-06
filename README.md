@@ -60,10 +60,47 @@ Dans la fenêtre des paramètres Nvidia, naviguez jusqu'à la section des param�
   <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/screenshot/allowflipping.png" alt="allowflipping">
 </p>
 
-### 3. Sauvegarder la Configuration
-Après avoir configuré vos moniteurs, cliquez sur **Save to X Configuration File**. Cela sauvegardera vos paramètres dans le fichier de configuration X11 de votre système, garantissant leur persistance à travers les redémarrages.
+### 3. Pour tous les DE sauf KDE :
 
-### 4. Redémarrer Votre Ordinateur
+Ouvrez le fichier /etc/environment en utilisant la commande :
+
+```bash
+sudo nano /etc/environment
+```
+Ajoutez la ligne suivante : 
+
+```
+__GL_SYNC_DISPLAY_DEVICE=DP-0
+
+```
+
+Remplacez DP-0 par l'écran avec la fréquence de rafraichissement la plus élevée. On peut voir ça dans le panneau nvidia-settings :
+
+<p align="center">
+  <img width="850" src="https://github.com/Gaming-Linux-FR/guide-nvidia/blob/main/screenshot/ecran.png" alt="ecran">
+</p>
+
+### 4. Pour KDE :
+
+Ouvrez le fichier ~/.config/plasma-workspace/env/path.sh en utilisant la commande :
+
+```bash
+sudo nano ~/.config/plasma-workspace/env/path.sh.
+```
+
+Ajoutez les lignes suivantes :
+
+```
+export KWIN_X11_NO_SYNC_TO_VBLANK=1
+export KWIN_X11_REFRESH_RATE=144000
+export KWIN_X11_FORCE_SOFTWARE_VSYNC=1
+```
+
+remplacez "144000" par la fréquence souhaitée (par exemple, 120000 pour 120 Hz).
+
+Sauvegardez et quittez le fichier.
+
+### 5. Redémarrer Votre Ordinateur
 Redémarrez votre ordinateur pour appliquer les modifications.
 
 ## Conclusion
