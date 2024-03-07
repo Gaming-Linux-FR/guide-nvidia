@@ -345,13 +345,20 @@ Cela signifie que l'option nomodeset n'était pas activée, ce qui est l'état s
 
 ## Étape 1 : Activation de RPM Fusion et installation des pilotes Nvidia
 
+Indispensable pour beaucoup de choses dont *Nvidia* :
+```bash
+sudo rpm-ostree update --uninstall rpmfusion-free-release --uninstall rpmfusion-nonfree-release --install rpmfusion-free-release --install rpmfusion-nonfree-release 
+```
+
+Si erreur : ```error: Package/capability 'rpmfusion-free-release' is already requested```  C'était déjà fait, on peut passer à la suite.
+
 ### Script pour automatiser l'instalation des drivers Nvidia sur Siverblue/Kinoite:**
 
 ```bash
 git clone https://github.com/Gaming-Linux-FR/post-install-silverblue-kinoite.git ~/post-install-silverblue-kinoite && cd ~/post-install-silverblue-kinoite && chmod +x ./nvidia.sh && sudo ./nvidia.sh
 ```
 
-Si vous utilisez les cript pas besoin de faire la suite.
+Si vous utilisez le script pas besoin de faire la suite.
 
 ### Activation des dépôts RPM Fusion Free et Non-Free
 
