@@ -345,6 +345,14 @@ Cela signifie que l'option nomodeset n'était pas activée, ce qui est l'état s
 
 ## Étape 1 : Activation de RPM Fusion et installation des pilotes Nvidia
 
+### Script pour automatiser l'instalation des drivers Nvidia sur Siverblue/Kinoite:**
+
+```bash
+git clone https://github.com/Gaming-Linux-FR/post-install-silverblue-kinoite.git ~/post-install-silverblue-kinoite && cd ~/post-install-silverblue-kinoite && chmod +x ./nvidia.sh && sudo ./nvidia.sh
+```
+
+Si vous utilisez les cript pas besoin de faire la suite.
+
 ### Activation des dépôts RPM Fusion Free et Non-Free
 
 RPM Fusion contient des logiciels que Fedora ne fournit pas. Il est divisé en deux dépôts : Free et Non-Free. Le script installe ces dépôts.
@@ -352,6 +360,22 @@ RPM Fusion contient des logiciels que Fedora ne fournit pas. Il est divisé en d
 ```bash
 dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+### Chargement précoce des modules Nvidia
+
+Il est **important** de faire celà **avant** la suite du tuto.
+
+Créez le fichier :
+
+```bash
+sudo nano /etc/dracut.conf.d/nvidia.conf
+```
+
+Collez dedans : 
+
+```
+force_drivers+=" nvidia nvidia_modeset nvidia_uvm nvidia_drm "
 ```
 
 ### Installation des pilotes Nvidia
