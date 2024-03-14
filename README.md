@@ -112,7 +112,7 @@ Vous avez maintenant réussi à configurer votre système Linux pour gérer plus
 
 ## Chargement des modules Nvidia dans l'initramfs
 
-Mettre les modules Nvidia dans l'initramfs est une bonne chose quelle que soit la distro ou la carte. Cependant, vous devez savoir que cela augmente considérablement la taille de l'initramfs, et les distros qui par défaut ont un petit /boot de 512 Mo peuvent rapidement se remplir et finir par aficher un message d'erreur car le /boot sera plei. Si vous êtes du genre à avoir plusieurs kernels ça peut très vite arriver aussi même avec un /boot de 2Go."
+Mettre les modules Nvidia dans l'initramfs est une bonne chose quelle que soit la distro ou la carte. Cependant, vous devez savoir que cela augmente considérablement la taille de l'initramfs, et les distros qui par défaut ont un petit /boot de 512 Mo peuvent rapidement se remplir et finir par aficher un message d'erreur car le /boot sera plein. Si vous êtes du genre à avoir plusieurs kernels ça peut très vite arriver aussi même avec un /boot de 1Go."
 
 ### Si votre distribution utilise Mkinitcpio (Arch, Manjaro, Cachyos, Arco Linux, la plus part des base Arch...)
 
@@ -290,6 +290,14 @@ Assurez-vous de correspondre les headers à votre version du noyau actuellement 
 echo -e 'options nvidia NVreg_UsePageAttributeTable=1 NVreg_InitializeSystemMemoryAllocations=0 NVreg_DynamicPowerManagement=0x02' | sudo tee -a /etc/modprobe.d/nvidia.conf
 echo -e 'options nvidia_drm modeset=1' | sudo tee -a /etc/modprobe.d/nvidia.conf
 ```
+
+Vous pouvez aussi ajouer : 
+
+```bash
+echo -e 'options nvidia_drm fbdev=1' | sudo tee -a /etc/modprobe.d/nvidia.conf
+```
+
+Mais il faut 2 prérequis : avoir un driver 550 ou plus récent et avoit fait l'early loading.
 
 #### 2.2 Choix et installation des pilotes NVIDIA
 
