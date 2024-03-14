@@ -9,15 +9,14 @@ Ce guide est destiné aux utilisateurs de cartes graphiques NVIDIA récentes sou
 3. [Moniteurs avec des taux de rafraîchissement différents sur X11](#moniteurs-avec-des-taux-de-rafraîchissement-différents-sur-x11)
 4. [Chargement des modules Nvidia dans l'initramfs](#chargement-des-modules-nvidia-dans-linitramfs)
 5. [Choisir une distribution qui fait tout ce qui suit pour vous](#choisir-une-distribution-qui-fait-tout-ce-qui-suit-pour-vous)
-6. [Activer les services](#activer-les-services)
-7. [Ordinateurs portables](#ordinateurs-portables)
-8. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
-9. [Installation des pilotes NVIDIA sur Arch Linux](#installation-des-pilotes-nvidia-sur-arch-linux)
-10. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
-11. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
-12. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
-13. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
-14. [Réinstallation de pilotes NVIDIA sur Ubuntu](#réinstallation-de-pilotes-nvidia-sur-ubuntu)
+6. [Ordinateurs portables](#ordinateurs-portables)
+7. [Overclocking avec NVIDIA sous Linux](#overclocking-avec-nvidia-sous-linux)
+8. [Installation des pilotes NVIDIA sur Arch Linux](#installation-des-pilotes-nvidia-sur-arch-linux)
+9. [Installation des pilotes NVIDIA sur Fedora Silverblue et Kinoite](#installation-des-pilotes-nvidia-sur-fedora-silverblue-et-kinoite)
+10. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
+11. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
+12. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
+13. [Réinstallation de pilotes NVIDIA sur Ubuntu](#réinstallation-de-pilotes-nvidia-sur-ubuntu)
 
 ---
 
@@ -231,28 +230,15 @@ Bien que cela soit normalement inutile, si vous souhaitez explicitement qu'une a
 
 Une fois de plus cela est généralement inutile si votre pilote Nvidia est correctement installé. Depuis l'arrivée de Prime dans les pilotes NVIDIA version [435.17](https://www.phoronix.com/news/NVIDIA-435.17-Linux-Driver). en 2019, il n'est normalement pas nécessaire de faire d'autres manipulations après l'installation du pilote. Oubliez les bidouillages avec Optimus, Bumblebee, et autres complications.
 
+**4. Dynamic Boost :** 
 
---- 
-
-J'espère que cette version améliorée répond à vos attentes !
-
----
-
-## Activer les services
-
-Quelle que soit la distributon, il faut activer ces services après l'instalation du driver :
+Si votre PC portable est compatible Dynamic Bosst activez :
 
 ```bash
-sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service
+sudo systemctl enable --now nvidia-powerd
 ```
 
-Si pc portable avec technologie "Dynamic Boost" (à vous de bien vérifier) :
-
-```bash
-sudo systemctl enable nvidia-powerd.service
-```
-
----
+Vérifiez bien qu'il l'est.
 
 ## Overclocking avec NVIDIA sous Linux
 
