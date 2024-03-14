@@ -17,6 +17,7 @@ Ce guide est destiné aux utilisateurs de cartes graphiques NVIDIA récentes sou
 11. [Installation des pilotes NVIDIA sur Fedora](#installation-des-pilotes-nvidia-sur-fedora)
 12. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
 13. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
+14. [Réinstallation de pilotes NVIDIA sur Ubuntu](#réinstallation-de-pilotes-nvidia-sur-ubuntu)
 
 ---
 
@@ -505,3 +506,69 @@ Maintenant, installez les pilotes Nvidia en acceptant automatiquement les licenc
 ```bash
 sudo zypper install --auto-agree-with-licenses -y nvidia-gfxG05-kmp-default nvidia-glG05 nvidia-glG05-32bit nvidia-utilsG05 nvidia-uvm-gfxG05 nvidia-videoG05 nvidia-videoG05-32bit
 ```
+
+---
+
+## Réinstallation de pilotes NVIDIA sur Ubuntu
+
+Lorsque vous rencontrez des problèmes avec les pilotes NVIDIA sur Ubuntu, il peut être nécessaire de les désinstaller proprement avant de procéder à une réinstallation. Ce chapitre vous guide à travers les étapes de nettoyage et de réinstallation des pilotes NVIDIA pour s'assurer que votre système utilise la version la plus à jour et la plus stable des pilotes. Voici comment procéder :
+
+### Étape 1 : Suppression des pilotes NVIDIA existants
+
+Commencez par ouvrir un terminal et exécutez la commande suivante pour supprimer tous les paquets liés à NVIDIA de votre système :
+
+```bash
+sudo apt purge ~nnvidia
+```
+
+Cette commande supprime tous les paquets ayant un nom qui commence par "nvidia".
+
+### Étape 2 : Nettoyage du système
+
+Après la suppression des pilotes, nettoyez votre système pour supprimer les paquets orphelins et les fichiers inutiles qui ont été installés avec les pilotes NVIDIA :
+
+```bash
+sudo apt autoremove
+sudo apt clean
+```
+
+### Étape 3 : Mise à jour du système
+
+Pour vous assurer que votre système est à jour avant de réinstaller les pilotes NVIDIA, exécutez les commandes suivantes :
+
+```bash
+sudo apt update
+sudo apt full-upgrade
+```
+
+Cela met à jour la liste des paquets et upgrade tous les paquets installés vers leurs dernières versions disponibles.
+
+### Étape 4 : Préparation à la réinstallation
+
+Avant de réinstaller les pilotes NVIDIA, ajoutez l'architecture 32 bits pour une meilleure compatibilité, en particulier si vous prévoyez d'utiliser des applications ou des jeux 32 bits :
+
+```bash
+sudo dpkg --add-architecture i386
+```
+
+### Étape 5 : Réinstallation des pilotes NVIDIA
+
+Maintenant, installez la version spécifique du pilote NVIDIA que vous souhaitez utiliser, ainsi que les paquets Vulkan nécessaires pour une performance graphique optimale :
+
+```bash
+sudo apt install nvidia-driver-535 libnvidia-gl-535:i386 libvulkan1 libvulkan1:i386
+```
+
+Remplacez `535` par la version du pilote que vous souhaitez installer, si différente, prenez la dernière version disponible sur votre base Ubuntu.
+
+### Étape 6 : Redémarrage du système
+
+Pour finaliser l'installation et appliquer les changements, redémarrez votre ordinateur :
+
+```bash
+sudo systemctl reboot
+```
+
+Après le redémarrage, votre système devrait utiliser les pilotes NVIDIA réinstallés. Vous pouvez vérifier l'installation en utilisant la commande `nvidia-smi` pour afficher des informations sur le pilote NVIDIA installé.
+
+Ces étapes vous aideront à résoudre les problèmes liés aux pilotes NVIDIA sur Ubuntu en vous assurant que vous utilisez une version propre et à jour des pilotes, optimisant ainsi les performances de votre système et de votre carte graphique.
