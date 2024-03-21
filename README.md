@@ -498,7 +498,7 @@ sudo zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NV
 Maintenant, installez les pilotes Nvidia en acceptant automatiquement les licences nécessaires.
 
 ```bash
-sudo zypper install --auto-agree-with-licenses -y nvidia-gfxG05-kmp-default nvidia-glG05 nvidia-glG05-32bit nvidia-utilsG05 nvidia-uvm-gfxG05 nvidia-videoG05 nvidia-videoG05-32bit
+sudo zypper install --auto-agree-with-licenses -y nvidia-gfxG06-kmp-default nvidia-glG06 nvidia-glG06-32bit nvidia-utilsG06 nvidia-uvm-gfxG06 nvidia-videoG06 nvidia-videoG06-32bit
 ```
 
 ---
