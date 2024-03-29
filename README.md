@@ -17,6 +17,7 @@ Ce guide est destiné aux utilisateurs de cartes graphiques NVIDIA récentes sou
 11. [Installation des pilotes NVIDIA sur Debian](#installation-des-pilotes-nvidia-sur-debian)
 12. [Installation des pilotes NVIDIA sur openSUSE Tumbleweed](#installation-des-pilotes-nvidia-sur-opensuse-tumbleweed)
 13. [Réinstallation de pilotes NVIDIA sur Ubuntu](#réinstallation-de-pilotes-nvidia-sur-ubuntu)
+14. [Activer les services systemd Nvidia](activer-les-services)
 
 ---
 
@@ -566,3 +567,11 @@ sudo systemctl reboot
 Après le redémarrage, votre système devrait utiliser les pilotes NVIDIA réinstallés. Vous pouvez vérifier l'installation en utilisant la commande `nvidia-smi` pour afficher des informations sur le pilote NVIDIA installé.
 
 Ces étapes vous aideront à résoudre les problèmes liés aux pilotes NVIDIA sur Ubuntu en vous assurant que vous utilisez une version propre et à jour des pilotes, optimisant ainsi les performances de votre système et de votre carte graphique.
+
+## Activer les services
+
+Après l'installation des drivers activez les services Nvidia pour la veille et la gestion de l'énergie. 
+
+```sh
+sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service nvidia-powerd.service
+```
