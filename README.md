@@ -32,13 +32,13 @@ Secure Boot est une fonctionnalité de sécurité du firmware UEFI qui empêche 
 3. **Désactivez Secure Boot**, changez de "Enabled" à "Disabled".
 4. **Sauvegardez et quittez**. Cela peut nécessiter d'appuyer sur une touche spécifique pour sauvegarder les paramètres avant de quitter.
 
-Certaines distributions comme Ubuntu, Linux Mint ou Opensuse, ont des outils qui peuvent aider à la mise en place de secureboot avec Nvidia sous Linux. Néanmoins ça reste peu accéssible aux débutants, le plus simple reste de désactiver sécureboot.
+Certaines distributions comme Ubuntu, Linux Mint ou Opensuse, ont des outils qui peuvent aider à la mise en place de secureboot avec Nvidia sous Linux. Néanmoins ça reste peu accessible aux débutants, le plus simple reste de désactiver secureboot.
 
 ---
 
 ## Utiliser X11 plutôt que Wayland
 
-Pour une meilleure compatibilité avec les pilotes NVIDIA, il est recommandé d'utiliser X11 en raison de limitations avec Wayland, en particulier avant l'intégration complète du patch "explicit sync". Certaines disctributions ont déjà appliqué ce patch permetant d'avoir une exelente expérience sur Wayland avec Nvidia, notamment **Nobara Linux** et **CachyOS**.
+Pour une meilleure compatibilité avec les pilotes NVIDIA, il est recommandé d'utiliser X11 en raison de limitations avec Wayland, en particulier avant l'intégration complète du patch "explicit sync". Certaines distributions ont déjà appliqué ce patch permetant d'avoir une excellente expérience sur Wayland avec Nvidia, notamment **Nobara Linux** et **CachyOS**.
 
 Cependant, étant donné son âge, X11 présente plusieurs limitations inhérentes à sa conception originelle, qui ne prenait pas en compte les évolutions technologiques récentes. Un exemple notable de ces limitations est sa gestion des écrans avec des taux de rafraîchissement différents ou encore le HDR. Lorsque vous utilisez deux moniteurs avec des taux de rafraîchissement différents, par exemple, un écran à 60 Hz et un autre à 144 Hz, X11 peut rencontrer des difficultés à gérer ces différences. Dans certains cas, cela peut conduire à une situation où le système, dans le but de maintenir une synchronisation cohérente entre les écrans, bride le taux de rafraîchissement du moniteur le plus rapide (144 Hz) pour le faire correspondre à celui du moniteur le plus lent (60 Hz). Donc il peut être intéressant si on a une Nvidia d'aller sur une distribution qui applique le patch "explicit sync" comme **Nobara Linux** et **CachyOS** et d'utiliser Wayland.
 
@@ -55,7 +55,7 @@ Cependant, étant donné son âge, X11 présente plusieurs limitations inhérent
 Lancez le panneau de configuration Nvidia
 
 ### 2. Ajuster les Paramètres OpenGL
-Dans la fenêtre des paramètres Nvidia, naviguez jusqu'à la section des paramètres OpenGL et désactivez l'option suivantes :
+Dans la fenêtre des paramètres Nvidia, naviguez jusqu'à la section des paramètres OpenGL et désactivez l'option suivante :
 - **Allow Flipping**
 
 <p align="center">
@@ -113,11 +113,11 @@ Vous avez maintenant réussi à configurer votre système Linux pour gérer plus
 
 ## Chargement des modules Nvidia dans l'initramfs
 
-Mettre les modules Nvidia dans l'initramfs est une bonne chose quelle que soit la distro ou la carte. Cependant, vous devez savoir que cela augmente considérablement la taille de l'initramfs, et les distros qui par défaut ont un petit /boot de 512 Mo peuvent rapidement se remplir et finir par aficher un message d'erreur car le /boot sera plein. Si vous êtes du genre à avoir plusieurs kernels ça peut très vite arriver aussi même avec un /boot de 1Go."
+Mettre les modules Nvidia dans l'initramfs est une bonne chose quelle que soit la distro ou la carte. Cependant, vous devez savoir que cela augmente considérablement la taille de l'initramfs, et les distros qui par défaut ont un petit /boot de 512 Mo peuvent rapidement se remplir et finir par afficher un message d'erreur car le /boot sera plein. Si vous êtes du genre à avoir plusieurs kernels ça peut très vite arriver aussi même avec un /boot de 1Go."
 
 ### Si votre distribution utilise Mkinitcpio (Arch, Manjaro, Cachyos, Arco Linux, la plus part des base Arch...)
 
-Ouvez le fichier /etc/mkinitcpio.conf : 
+Ouvrez le fichier /etc/mkinitcpio.conf : 
 
 ```bash
 sudo nano /etc/mkinitcpio.conf
@@ -199,7 +199,7 @@ Si une application utilise Nvidia, elle apparaîtra dans la liste affichée par 
 
 **3. Forcer une application à utiliser Nvidia :** 
 
-**INUTILE dans 99% des cas**. Si un jeu ne se lance pas avec Nvidia c'est que vous avez mal installé le driver ou que vous être tomber sur un des ultras rares jeux qui nécessite de forcer Nvidia.
+**INUTILE dans 99% des cas**. Si un jeu ne se lance pas avec Nvidia c'est que vous avez mal installé le driver ou que vous êtes tombé sur un des ultras rares jeux qui nécessite de forcer Nvidia.
 
 Bien que cela soit normalement inutile, si vous souhaitez explicitement qu'une application utilise Nvidia, voici comment procéder selon votre distribution Linux :
 
@@ -281,7 +281,7 @@ Les headers du noyau Linux sont nécessaires pour la compilation de modules exte
   sudo pacman -S linux-zen-headers
   ```
 
-Assurez-vous de correspondre les headers à votre version du noyau actuellement utilisée.
+Assurez-vous de faire correspondre les headers à votre version du noyau actuellement utilisée.
 
 ### Étape 2 : Configuration des pilotes NVIDIA
 
@@ -292,7 +292,7 @@ echo -e 'options nvidia NVreg_UsePageAttributeTable=1 NVreg_InitializeSystemMemo
 echo -e 'options nvidia_drm modeset=1' | sudo tee -a /etc/modprobe.d/nvidia.conf
 ```
 
-Vous pouvez aussi ajouer : 
+Vous pouvez aussi ajouter : 
 
 ```bash
 echo -e 'options nvidia_drm fbdev=1' | sudo tee -a /etc/modprobe.d/nvidia.conf
