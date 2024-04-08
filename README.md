@@ -241,6 +241,10 @@ sudo systemctl enable --now nvidia-powerd
 
 Vérifiez bien qu'il l'est.
 
+Cette commande peut vous donner l'indication : ```nvidia-settings -q DynamicBoostSupport```
+
+Néanmoins, elle n'est pas fiable à 100% car elle me renvoit que mon pc n'est pas compatible alors que il l'est. Donc La meilleure solution est donc de chercher sur le site du connstructeur de votre PC portable.
+
 ## Overclocking avec NVIDIA sous Linux
 
 L'overclocking peut améliorer les performances de votre GPU NVIDIA, mais doit être pratiqué avec prudence.
