@@ -87,7 +87,7 @@ Remplacez DP-0 par l'écran avec la fréquence de rafraichissement la plus élev
 Ouvrez le fichier ~/.config/plasma-workspace/env/path.sh en utilisant la commande :
 
 ```bash
-sudo nano ~/.config/plasma-workspace/env/path.sh.
+sudo nano ~/.config/plasma-workspace/env/path.sh
 ```
 
 Ajoutez les lignes suivantes :
